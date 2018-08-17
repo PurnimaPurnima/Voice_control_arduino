@@ -1,10 +1,10 @@
 String voice;
-#define led1 2
-#define led2 3
-#define led3 4
-#define led4 5
-#define buzzer 6
-#define motor 7
+#define led1 2 //connect the positive of the 1st LED to pin 2 of the arduino
+#define led2 3 //connect the positive of the 2nd LED to pin 3 of the arduino
+#define led3 4 //connect the positive of the 3rd LED to pin 4 of the arduino
+#define led4 5 //connect the positive of the 4th LED to pin 5 of the arduino
+#define buzzer 6 //connnect the positive of the buzzer to the 6th pin
+#define motor 7 //connect the motor-driver input pin to pin 7 of arduino
 
 
 void setup() 
@@ -36,7 +36,7 @@ void loop()
   digitalWrite(led3, HIGH);
   else if (voice == "four on" || voice=="4 on")
   digitalWrite(led4, HIGH);
-  else if (voice=="one off" || voice=="one of")
+  else if (voice=="one off" || voice=="one of") //the commands like "one of" are written to avoid the errors due to less sensitive mic.
   digitalWrite(led1, LOW);
   else if (voice=="two off" || voice=="two of")
   digitalWrite(led2, LOW);
@@ -48,7 +48,7 @@ void loop()
   alloff();
   else if (voice == "all on" || voice=="on")
   allon();
-  else if (voice == "buzzer on" || voice=="bazaron" || voice=="Bazaar on")
+  else if (voice == "buzzer on" || voice=="bazaron" || voice=="Bazaar on") //"bazaron" and "Bazaar on" avoid the errors due to less sensitive mic.
   digitalWrite(buzzer, HIGH);
   else if (voice=="buzzer off" || voice=="Bazaar off" || voice=="buzzer of" || voice=="Bazaar of")
   digitalWrite(buzzer, LOW);
@@ -56,7 +56,7 @@ void loop()
   digitalWrite(motor, HIGH);
   else if (voice=="fan off" || voice=="fan of")
   digitalWrite(motor, LOW);
-  else if (voice=="pattern" || voice=="Titan" || voice=="cartoon" || voice=="Patan")
+  else if (voice=="pattern" || voice=="Titan" || voice=="cartoon" || voice=="Patan") //again to avoid errors due to less sensitive mic.
   pattern();
   voice="";
 }
